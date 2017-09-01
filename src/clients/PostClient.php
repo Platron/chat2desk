@@ -35,7 +35,7 @@ class PostClient extends BaseClient {
 		if(curl_errno($curl)){
 			throw new SdkException(curl_error($curl), curl_errno($curl));
 		}
-        
+
         $decodedResponse = json_decode($response);
         if(empty($decodedResponse)){
             throw new SdkException('Chat2desck error. Empty response or not json response');

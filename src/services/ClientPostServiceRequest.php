@@ -9,7 +9,7 @@ class ClientPostServiceRequest extends BaseServiceRequest {
     protected $transport;
     
     public function getRequestUrl() {
-        return 'clients';
+        return self::REQUEST_URL.'clients';
     }
     
     /**

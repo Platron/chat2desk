@@ -18,7 +18,9 @@ class ClientPostServiceResponse extends BaseServiceResponse {
     public $status;
     
     public function __construct(stdClass $response) {
-        parent::__construct($response->data);
         parent::__construct($response);
+        if($this->isValid()){
+            parent::__construct($response->data);
+        }
     }
 }

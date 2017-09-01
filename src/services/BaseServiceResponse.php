@@ -13,6 +13,12 @@ abstract class BaseServiceResponse {
     protected $errorDescription;
     
     public function __construct(stdClass $response) {
+                
+        if($response->status == 'error'){
+            $this->errorCode = 'error';
+            $this->errorDescription = $response->message;
+        }
+        
         foreach (get_object_vars($this) as $name => $value) {
 			if (!empty($response->$name)) {
 				$this->$name = $response->$name;

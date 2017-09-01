@@ -13,6 +13,6 @@ class ClientPostTest extends WhatsappTestBase {
         $service->setPhone($this->phoneTo);
         $service->setTransport($this->getTransport());
         
-        $this->assertNotEmpty((new ClientPostServiceResponse($client->sendRequest($service)))->id);
+        $this->assertTrue((new ClientPostServiceResponse($client->sendRequest($service)))->isValid());
     }
 }
