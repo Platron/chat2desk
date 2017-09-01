@@ -5,6 +5,19 @@ namespace Platron\Chat2desk\services;
 abstract class BaseServiceRequest {
     const REQUEST_URL = 'https://api.chat2desk.com/v1/';
     
+    CONST 
+        TYPE_TO_CLIENT = 'to_client',
+        TYPE_AUTOREPLY = 'autoreply',
+        TYPE_SYSTEM = 'system';
+    
+    CONST 
+        TRANSPORT_WHATSAPP = 'whatsapp',
+        TRANSPORT_VIBER = 'viber',
+        TRANSPORT_VKONTAKTE = 'vkontakte',
+        TRANSPORT_FACEBOOK = 'facebook',
+        TRANSPORT_TELEGRAM = 'telegram',
+        TRANSPORT_SMS = 'sms';
+    
     /**
 	 * Получить url ждя запроса
 	 * @return string
@@ -25,4 +38,31 @@ abstract class BaseServiceRequest {
 
 		return $filledvars;
 	}
+    
+    /**
+     * Получить все транспорты
+     * @return string[]
+     */
+    public function getTransports(){
+        return [
+            self::TRANSPORT_FACEBOOK,
+            self::TRANSPORT_SMS,
+            self::TRANSPORT_TELEGRAM,
+            self::TRANSPORT_VIBER,
+            self::TRANSPORT_VKONTAKTE,
+            self::TRANSPORT_WHATSAPP,
+        ];
+    }
+    
+    /**
+     * Получить все типы
+     * @return string[]
+     */
+    public function getTypes(){
+        return [
+            self::TYPE_AUTOREPLY,
+            self::TYPE_SYSTEM,
+            self::TYPE_TO_CLIENT,
+        ];
+    }
 }

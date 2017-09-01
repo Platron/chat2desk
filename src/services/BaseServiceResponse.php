@@ -6,6 +6,8 @@ use stdClass;
 
 abstract class BaseServiceResponse {
     
+    public $status;
+    
     /** @var int */
     protected $errorCode;
     

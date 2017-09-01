@@ -8,6 +8,9 @@ class ClientPostServiceRequest extends BaseServiceRequest {
     protected $phone;
     protected $transport;
     
+    /**
+     * {@inheritdoc}
+     */
     public function getRequestUrl() {
         return self::REQUEST_URL.'clients';
     }
@@ -25,6 +28,9 @@ class ClientPostServiceRequest extends BaseServiceRequest {
      * @param string $transport
      */
     public function setTransport($transport){
+        if(!in_array($transport, $this->getTransports())){
+            throw new \Platron\Chat2desk\SdkException('Wrong transport');
+        }
         $this->transport = $transport;
     }
     

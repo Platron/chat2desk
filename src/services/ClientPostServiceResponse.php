@@ -15,7 +15,6 @@ class ClientPostServiceResponse extends BaseServiceResponse {
     public $country_id;
     public $first_client_message;
     public $last_client_message;
-    public $status;
     
     public function __construct(stdClass $response) {
         parent::__construct($response);
