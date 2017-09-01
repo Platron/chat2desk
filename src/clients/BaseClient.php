@@ -5,7 +5,7 @@ namespace Platron\Chat2desk\clients;
 use Platron\Chat2desk\services\BaseServiceRequest;
 use Psr\Chat2desk\LoggerInterface;
 
-abstract class iClient {
+abstract class BaseClient {
  
     const LOG_LEVEL = 0;
     
@@ -38,5 +38,5 @@ abstract class iClient {
      * Послать запрос
      * @param \Platron\Chat2desk\BaseService $service
      */
-    public function sendRequest(BaseServiceRequest $service);
+    abstract public function sendRequest(BaseServiceRequest $service);
 }

@@ -7,7 +7,7 @@ use Platron\Chat2desk\services\ClientPostServiceRequest;
 use Platron\Chat2desk\services\ClientPostServiceResponse;
 
 class ClientPostTest extends WhatsappTestBase {
-    public function sendRequestTest(){
+    public function testSendRequest(){
         $client = new PostClient($this->authString);
         $service = new ClientPostServiceRequest();
         $service->setPhone($this->phoneTo);

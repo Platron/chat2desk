@@ -2,11 +2,11 @@
 
 namespace Platron\Chat2desk\clients;
 
-use Platron\Chat2desk\clients\iClient;
+use Platron\Chat2desk\clients\BaseClient;
 use Platron\Chat2desk\SdkException;
 use Platron\Chat2desk\services\BaseServiceRequest;
 
-class PostClient extends iClient {
+class PostClient extends BaseClient {
     /**
      * @inheritdoc
      */
