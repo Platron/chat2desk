@@ -59,7 +59,7 @@ class PostClient implements iClient {
         
         $decodedResponse = json_decode($response);
         if(empty($decodedResponse)){
-            throw new SdkException('Atol error. Empty response or not json response');
+            throw new SdkException('Chat2desck error. Empty response or not json response');
         }
 		
 		return $decodedResponse;

@@ -2,13 +2,13 @@
 
 namespace Platron\Chat2desk\clients;
 
-use Platron\Atol\services\BaseServiceRequest;
+use Platron\Chat2desk\services\BaseServiceRequest;
 
 interface iClient {
     
     /**
      * Послать запрос
-     * @param \Platron\Atol\BaseService $service
+     * @param \Platron\Chat2desk\BaseService $service
      */
     public function sendRequest(BaseServiceRequest $service);
 }
