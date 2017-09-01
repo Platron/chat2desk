@@ -4,23 +4,21 @@ namespace Platron\Chat2desk\tests\integration;
 
 use Platron\Chat2desk\tests\integration\UserSettings;
 
-class IntegrationTestBase extends \PHPUnit_Framework_TestCase {
-    /** @var string */
-    protected $login;
-    /** @var string */
-    protected $password;
-    /** @var int */
-    protected $inn;
-    /** @var string */
-    protected $groupCode;
-    /** @var string */
-    protected $paymentAddress;
+abstract class IntegrationTestBase extends \PHPUnit_Framework_TestCase {
+    
+    /** @var string секретная строка из ЛК */
+    protected $authString;
+    /** @var string Номер телефона, на который будет отправляться сообщения */
+    protected $phoneTo;
     
     public function __construct() {
-        $this->login = UserSettings::LOGIN;
-        $this->password = UserSettings::PASSWORD;
-        $this->inn = UserSettings::INN;
-        $this->groupCode = UserSettings::GROUP_ID;
-        $this->paymentAddress = UserSettings::PAYMENT_ADDRESS;
+        $this->authString = UserSettings::API_STRING;
+        $this->phoneTo = UserSettings::PHONE_TO_SEND_MESSAGES;
     }
+    
+    /**
+     * Получить транспорт
+     * @return string
+     */
+    abstract public function getTransport();
 }

@@ -4,9 +4,6 @@ namespace Platron\Chat2desk\tests\integration;
 
 class UserSettings {
     const 
-        LOGIN = 'atolonlinetest2',
-        PASSWORD = 'LpywGxLi7',
-        GROUP_ID = 'AtolOnline2-Test',
-        INN = '7717586110',
-        PAYMENT_ADDRESS = 'test2.atol.ru';
+        API_STRING = '3835934002dd5f67308f7dfd1a4d20',
+        PHONE_TO_SEND_MESSAGES = '79267449959';
 }

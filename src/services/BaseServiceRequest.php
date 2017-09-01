@@ -3,7 +3,7 @@
 namespace Platron\Chat2desk\services;
 
 abstract class BaseServiceRequest {
-    const REQUEST_URL = 'https://online.atol.ru/possystem/v3/';
+    const REQUEST_URL = 'https://api.chat2desk.com/v1/';
     
     /**
 	 * Получить url ждя запроса
