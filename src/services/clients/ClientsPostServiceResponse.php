@@ -1,11 +1,11 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\clients;
 
+use Platron\Chat2desk\services\BaseServiceResponse;
 use stdClass;
 
 class ClientsPostServiceResponse extends BaseServiceResponse {
-    
     public $id;
     public $asigned_name;
     public $phone;

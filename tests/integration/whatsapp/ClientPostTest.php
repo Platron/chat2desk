@@ -2,18 +2,15 @@
 
 namespace Platron\Chat2desk\tests\integration\whatsapp;
 
-use Platron\Chat2desk\clients\PostClient;
-use Platron\Chat2desk\services\ClientsPostServiceRequest;
-use Platron\Chat2desk\services\ClientsPostServiceResponse;
+use Platron\Chat2desk\services\clients\ClientsPostServiceRequest;
+use Platron\Chat2desk\services\clients\ClientsPostServiceResponse;
 
 class ClientPostTest extends WhatsappTestBase {
     public function testSendRequest(){
-        $client = new PostClient($this->authString);
-        
         $service = new ClientsPostServiceRequest();
         $service->setPhone($this->phoneTo);
         $service->setTransport($this->getTransport());
         
-        $this->assertTrue((new ClientsPostServiceResponse($client->sendRequest($service)))->isValid());
+        $this->assertTrue((new ClientsPostServiceResponse($service->sendRequest($this->authString)))->isValid());
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\messages;
 
-class MessagesPostServiceRequest extends BaseServiceRequest {
+use Platron\Chat2desk\SdkException;
+use Platron\Chat2desk\services\BasePostServiceRequest;
+
+class MessagesPostServiceRequest extends BasePostServiceRequest {
 
     protected $client_id;
     protected $text;
@@ -49,7 +52,7 @@ class MessagesPostServiceRequest extends BaseServiceRequest {
      */
     public function setTransport($transport){
         if(!in_array($transport, $this->getTransports())){
-            throw new \Platron\Chat2desk\SdkException('Wrong transport');
+            throw new SdkException('Wrong transport');
         }
         $this->transport = $transport;
     }
@@ -60,7 +63,7 @@ class MessagesPostServiceRequest extends BaseServiceRequest {
      */
     public function setType($type){
         if(!in_array($type, $this->getTypes())){
-            throw new \Platron\Chat2desk\SdkException('Wrong type');
+            throw new SdkException('Wrong type');
         }
         $this->type = $type;
     }

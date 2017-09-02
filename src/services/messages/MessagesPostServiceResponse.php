@@ -1,6 +1,9 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\messages;
+
+use Platron\Chat2desk\services\BaseServiceResponse;
+use stdClass;
 
 class MessagesPostServiceResponse extends BaseServiceResponse{
     public $channel_id;

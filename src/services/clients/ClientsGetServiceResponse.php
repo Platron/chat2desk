@@ -1,8 +1,10 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\clients;
 
 use Platron\Chat2desk\data_objects\Client;
+use Platron\Chat2desk\services\BaseServiceResponse;
+use stdClass;
 
 class ClientsGetServiceResponse extends BaseServiceResponse {
 	
@@ -13,7 +15,7 @@ class ClientsGetServiceResponse extends BaseServiceResponse {
 	public $limit;
 	public $offset;
 	
-	public function __construct(\stdClass $response) {
+	public function __construct(stdClass $response) {
 		parent::__construct($response);
 		if($this->isValid()){
 			foreach($response->data as $client){

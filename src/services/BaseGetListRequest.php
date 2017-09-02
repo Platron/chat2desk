@@ -2,7 +2,7 @@
 
 namespace Platron\Chat2desk\services;
 
-abstract class BaseGetListRequest extends BaseServiceRequest {
+abstract class BaseGetListRequest extends BaseGetServiceRequest {
 	
 	protected $limit = 20;
 	protected $offset = 0;

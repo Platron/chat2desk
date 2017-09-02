@@ -1,8 +1,11 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\clients;
 
-class ClientsPostServiceRequest extends BaseServiceRequest {
+use Platron\Chat2desk\SdkException;
+use Platron\Chat2desk\services\BasePostServiceRequest;
+
+class ClientsPostServiceRequest extends BasePostServiceRequest {
     
     protected $channel_id;
     protected $phone;
@@ -29,7 +32,7 @@ class ClientsPostServiceRequest extends BaseServiceRequest {
      */
     public function setTransport($transport){
         if(!in_array($transport, $this->getTransports())){
-            throw new \Platron\Chat2desk\SdkException('Wrong transport');
+            throw new SdkException('Wrong transport');
         }
         $this->transport = $transport;
     }

@@ -1,6 +1,8 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\clients;
+
+use Platron\Chat2desk\services\BaseGetListRequest;
 
 class ClientsGetServiceRequest extends BaseGetListRequest {
 

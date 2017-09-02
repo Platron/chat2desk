@@ -1,9 +1,9 @@
 <?php
 
-namespace Platron\Chat2desk\services;
+namespace Platron\Chat2desk\services\client;
 
 use Platron\Chat2desk\SdkException;
-use stdClass;
+use Platron\Chat2desk\services\BaseServiceResponse;
 
 class ClientsGetLastQuestionServiceResponse extends BaseServiceResponse {
 	
