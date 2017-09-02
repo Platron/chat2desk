@@ -18,18 +18,40 @@ vendor/bin/phpunit tests/integration
 
 ## Примеры использования
 
-### 1. Запрос токена
+### 1. Отправка сообщения
 
 ```php
+use Platron\Chat2desk\services\messages\MessagesPostServiceRequest;
+use Platron\Chat2desk\services\messages\MessagesPostServiceResponse;
+use Platron\Chat2desk\services\BaseServiceRequest;
 
+$service = new MessagesPostServiceRequest();
+$service->setClientId(1);
+$service->setText('Test');
+$service->setTransport(BaseServiceRequest::TRANSPORT_WHATSAPP);
+$response = new MessagesPostService(Response$service->sendRequest('token'));
 ```
 
-### 2. Создание чека
+### 2. Получение клиента по номеру телефона
 
 ```php
+use Platron\Chat2desk\services\clients\ClientsGetServiceRequest;
+use Platron\Chat2desk\services\clients\ClientsGetServiceResponse;
+
+$service = new ClientsGetServiceRequest();
+$service->setPhone($this->phoneTo);
+$response = new MessagesPostServiceResponse($service->sendRequest('token'));
 ```
 
-### 3. Запрос статуса 
+### 3. Добавление клиента
 
 ```php
+use Platron\Chat2desk\services\clients\ClientsPostServiceRequest;
+use Platron\Chat2desk\services\clients\ClientsPostServiceResponse;
+use Platron\Chat2desk\services\BaseServiceRequest;
+
+$service = new ClientsPostServiceRequest();
+$service->setPhone('79050000000');
+$service->setTransport(BaseServiceRequest::TRANSPORT_WHATSAPP);
+$response = new ClientsPostServiceResponse($service->sendRequest($this->authString));
 ```
