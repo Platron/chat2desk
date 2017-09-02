@@ -11,4 +11,4 @@ composer.phar
 /nbproject/
 
 # Merchant settings for integration tests
-/tests/integration/MerchantSettings.php
+/tests/integration/UserSettings.php
