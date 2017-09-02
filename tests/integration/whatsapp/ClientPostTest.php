@@ -10,7 +10,7 @@ class ClientPostTest extends WhatsappTestBase {
         $service = new ClientsPostServiceRequest();
         $service->setPhone($this->phoneTo);
         $service->setTransport($this->getTransport());
-        
+
         $this->assertTrue((new ClientsPostServiceResponse($service->sendRequest($this->authString)))->isValid());
     }
 }

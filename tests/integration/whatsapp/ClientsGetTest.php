@@ -9,7 +9,7 @@ class ClientsGetTest extends WhatsappTestBase {
 	public function testSendRequest(){
 		$service = new ClientsGetServiceRequest();
 		$service->setPhone($this->phoneTo);
-		
+
 		$this->assertTrue((new ClientsGetServiceResponse($service->sendRequest($this->authString)))->isValid());
 	}
 }
