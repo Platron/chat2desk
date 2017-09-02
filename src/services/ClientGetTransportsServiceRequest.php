@@ -4,7 +4,7 @@ namespace Platron\Chat2desk\services;
 
 use Platron\Chat2desk\SdkException;
 
-class ClientGetTransportsServiceRequest extends BaseServiceRequest {
+class ClientGetTransportsServiceRequest extends BaseGetListRequest {
 	
 	/**
 	 * {@inheritdoc}
