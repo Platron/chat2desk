@@ -2,7 +2,7 @@
 
 namespace Platron\Chat2desk\services;
 
-class ClientPostServiceRequest extends BaseServiceRequest {
+class ClientsPostServiceRequest extends BaseServiceRequest {
     
     protected $channel_id;
     protected $phone;

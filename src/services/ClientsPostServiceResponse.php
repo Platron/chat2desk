@@ -4,7 +4,7 @@ namespace Platron\Chat2desk\services;
 
 use stdClass;
 
-class ClientPostServiceResponse extends BaseServiceResponse {
+class ClientsPostServiceResponse extends BaseServiceResponse {
     
     public $id;
     public $asigned_name;
