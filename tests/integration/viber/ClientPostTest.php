@@ -1,11 +1,11 @@
 <?php
 
-namespace Platron\Chat2desk\tests\integration\whatsapp;
+namespace Platron\Chat2desk\tests\integration\viber;
 
 use Platron\Chat2desk\services\clients\ClientsPostServiceRequest;
 use Platron\Chat2desk\services\clients\ClientsPostServiceResponse;
 
-class ClientPostTest extends WhatsappBaseTest {
+class ClientPostTest extends ViberBaseTest {
     public function testSendRequest(){
         $service = new ClientsPostServiceRequest();
         $service->setPhone($this->phoneTo);
