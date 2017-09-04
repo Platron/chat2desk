@@ -40,7 +40,7 @@ class PostClient extends BaseClient {
         if(empty($decodedResponse)){
             throw new SdkException('Chat2desck error. Empty response or not json response');
         }
-		
+
 		return $decodedResponse;
     }
 }

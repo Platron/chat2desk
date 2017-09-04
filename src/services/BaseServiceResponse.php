@@ -6,6 +6,7 @@ use stdClass;
 
 abstract class BaseServiceResponse {
     
+    /** @var string */
     public $status;
     
     /** @var int */
@@ -16,9 +17,14 @@ abstract class BaseServiceResponse {
     
     public function __construct(stdClass $response) {
                 
-        if($response->status == 'error'){
+        if(!empty($response->status) && $response->status == 'error'){
             $this->errorCode = 'error';
             $this->errorDescription = $response->message;
+        }
+
+        if(!empty($response->data->status) && $response->data->status == 'error'){
+            $this->errorCode = 'error';
+            $this->errorDescription = $response->data->message;
         }
         
         foreach (get_object_vars($this) as $name => $value) {
