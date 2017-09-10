@@ -1,4 +1,4 @@
-Platron Atol SDK
+Platron Chat2Desk SDK
 ===============
 ## Установка
 
