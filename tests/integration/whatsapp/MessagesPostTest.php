@@ -31,7 +31,7 @@ class MessagesPostTest extends WhatsappBaseTest {
         $servicePostMessage->setClientId($createdClient->id);
         $servicePostMessage->setText('Test');
         $servicePostMessage->setTransport($this->getTransport());
-        
+
         $this->assertTrue((new MessagesPostServiceResponse($servicePostMessage->sendRequest($this->authString)))->isValid());
     }
 }

@@ -6,7 +6,9 @@ use Platron\Chat2desk\services\BaseServiceResponse;
 use stdClass;
 
 class MessagesPostServiceResponse extends BaseServiceResponse{
-    public $channel_id;
+    
+	public $message_id;
+	public $channel_id;
     public $operator_id;
     public $transport;
     public $type;
