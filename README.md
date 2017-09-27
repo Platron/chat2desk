@@ -3,7 +3,7 @@ Platron Chat2Desk SDK
 ## Установка
 
 Проект предполагает через установку с использованием composer
-<pre><code>composer require platron/chat2desk</pre></code>
+<pre><code>composer require payprocessing/chat2desk</pre></code>
 
 ## Тесты
 Для работы тестов необходим PHPUnit, для установки необходимо выполнить команду
