@@ -9,6 +9,6 @@ abstract class BasePutServiceRequest extends BaseServiceRequest {
 	 * {@inheritdoc}
 	 */
 	public function sendRequest($authString){
-		return (new PutClient($authString))->sendRequest($this);
+		return (new PutClient($authString, $this->logger, $this->timeout))->sendRequest($this);
 	}
 }

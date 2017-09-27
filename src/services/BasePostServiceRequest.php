@@ -9,6 +9,6 @@ abstract class BasePostServiceRequest extends BaseServiceRequest {
 	 * {@inheritdoc}
 	 */
 	public function sendRequest($authString){
-		return (new PostClient($authString))->sendRequest($this);
+		return (new PostClient($authString, $this->logger, $this->timeout))->sendRequest($this);
 	}
 }

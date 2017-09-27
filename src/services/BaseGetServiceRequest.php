@@ -10,6 +10,6 @@ abstract class BaseGetServiceRequest extends BaseServiceRequest {
 	 * {@inheritdoc}
 	 */
 	public function sendRequest($authString){
-		return (new GetClient($authString))->sendRequest($this);
+		return (new GetClient($authString, $this->logger, $this->timeout))->sendRequest($this);
 	}
 }

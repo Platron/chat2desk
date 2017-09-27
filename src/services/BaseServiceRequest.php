@@ -2,6 +2,8 @@
 
 namespace Platron\Chat2desk\services;
 
+use Psr\Log\LoggerInterface;
+
 abstract class BaseServiceRequest {
     const REQUEST_URL = 'https://api.chat2desk.com/v1/';
     
@@ -17,6 +19,11 @@ abstract class BaseServiceRequest {
         TRANSPORT_FACEBOOK = 'facebook',
         TRANSPORT_TELEGRAM = 'telegram',
         TRANSPORT_SMS = 'sms';
+    
+    /** @var LoggerInterface */
+    protected $logger = null;
+    /** @var integer */
+    protected $timeout = 30;
     
     /**
 	 * Получить url ждя запроса
@@ -64,5 +71,21 @@ abstract class BaseServiceRequest {
             self::TYPE_SYSTEM,
             self::TYPE_TO_CLIENT,
         ];
+    }
+    
+    /**
+     * Установить лог
+     * @param LoggerInterface $logger
+     */
+    public function setLog(LoggerInterface $logger){
+        $this->logger = $logger;
+    }
+    
+    /**
+     * Установить максимальное время ожидания ответа
+     * @param integer $timeout
+     */
+    public function setConnectionTimeout($timeout){
+        $this->timeout = $timeout;
     }
 }
