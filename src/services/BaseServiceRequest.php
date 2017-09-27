@@ -38,6 +38,10 @@ abstract class BaseServiceRequest {
 	public function getParameters() {
 		$filledvars = array();
 		foreach (get_object_vars($this) as $name => $value) {
+			if(in_array($name, ['logger','timeout'])){
+				continue;
+			}
+			
 			if ($value) {
 				$filledvars[$name] = (string)$value;
 			}

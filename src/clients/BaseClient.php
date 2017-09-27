@@ -3,7 +3,7 @@
 namespace Platron\Chat2desk\clients;
 
 use Platron\Chat2desk\services\BaseServiceRequest;
-use Psr\Chat2desk\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 abstract class BaseClient {
  
