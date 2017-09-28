@@ -2,29 +2,36 @@
 
 namespace Platron\Chat2desk\tests\integration\viber;
 
-use Platron\Chat2desk\services\messages\MessagesPostServiceRequest;
-use Platron\Chat2desk\services\messages\MessagesPostServiceResponse;
-use Platron\Chat2desk\services\clients\ClientsPostServiceResponse;
-use Platron\Chat2desk\services\clients\ClientsPostServiceRequest;
+use Platron\Chat2desk\services\client\ClientGetServiceRequest;
+use Platron\Chat2desk\services\client\ClientGetServiceResponse;
 use Platron\Chat2desk\services\clients\ClientsGetServiceRequest;
 use Platron\Chat2desk\services\clients\ClientsGetServiceResponse;
+use Platron\Chat2desk\services\clients\ClientsPostServiceRequest;
+use Platron\Chat2desk\services\clients\ClientsPostServiceResponse;
+use Platron\Chat2desk\services\messages\MessagesPostServiceRequest;
+use Platron\Chat2desk\services\messages\MessagesPostServiceResponse;
 
 class MessagesPostTest extends ViberBaseTest {
     public function testSendRequest(){
         
         $service = new ClientsGetServiceRequest();
 		$service->setPhone($this->phoneTo);
-		$getResponseClient = new ClientsGetServiceResponse($service->sendRequest($this->authString));
+		$getClientsResponse = new ClientsGetServiceResponse($service->sendRequest($this->authString));
         
-        if(empty($getResponseClient->clients[0])){
-		$servicePostClient = new ClientsPostServiceRequest();
-        $servicePostClient->setPhone($this->phoneTo);
-        $servicePostClient->setTransport($this->getTransport());
-		
-		$createdClient = new ClientsPostServiceResponse($servicePostClient->sendRequest($this->authString));
+        if(!empty($getClientsResponse->clients[0])){
+            $clientRequest = new ClientGetServiceRequest($getClientsResponse->clients[0]->id);
+            $clientResponse = new ClientGetServiceResponse($clientRequest->sendRequest($this->authString));
+        }
+        
+        if(empty($getClientsResponse->clients[0]) || empty($clientResponse->channels) || !in_array($this->getTransport(), $clientResponse->channels[0]->transports)){
+            $servicePostClient = new ClientsPostServiceRequest();
+            $servicePostClient->setPhone($this->phoneTo);
+            $servicePostClient->setTransport($this->getTransport());
+
+            $createdClient = new ClientsPostServiceResponse($servicePostClient->sendRequest($this->authString));
         }
         else {
-            $createdClient = $getResponseClient->clients[0];
+            $createdClient = $getClientsResponse->clients[0];
         }
         
         $servicePostMessage = new MessagesPostServiceRequest();
