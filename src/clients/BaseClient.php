@@ -4,10 +4,11 @@ namespace Platron\Chat2desk\clients;
 
 use Platron\Chat2desk\services\BaseServiceRequest;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
 
 abstract class BaseClient {
  
-    const LOG_LEVEL = 0;
+    const LOG_LEVEL = LogLevel::INFO;
     
     /** @var string Ключ API */
     protected $authString;
