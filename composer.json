@@ -3,7 +3,7 @@
     "description": "Chat2desk SDK",
     "require": {
         "php": ">=5.4",
-        "psr/log": "^1.1"
+        "psr/log": "^1.0"
     },
     "require-dev": {
 		"php": ">=5.6",
